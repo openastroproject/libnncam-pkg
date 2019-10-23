@@ -24,6 +24,8 @@ case $debversion in
 esac
 echo $compatversion > debfiles/compat
 
+cp ../patches/*.patch debfiles/patches
+
 tar zxf ../libnncam-$version.tar.gz
 cd $srcdir
 test -d demo && ( chmod -x demo/*.* Makefile )
