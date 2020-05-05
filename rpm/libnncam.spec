@@ -1,13 +1,13 @@
 %define debug_package %{nil}
 
 Name:           libnncam
-Version:        1.37.14643
+Version:        1.39.15529
 Release:        0
 Summary:        Risingcam and Levenhuk camera support library
 License:	GPLv2+
 Prefix:         %{_prefix}
 Provides:       libnncam = %{version}-%{release}
-Obsoletes:      libnncam < 1.37.14643
+Obsoletes:      libnncam < 1.39.15529
 Source:         libnncam-%{version}.tar.gz
 Patch0:         pkg-config.patch
 Patch1:         udev-rules.patch
@@ -20,7 +20,7 @@ Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Provides:       libnncam-devel = %{version}-%{release}
-Obsoletes:      libnncam-devel < 1.37.14643
+Obsoletes:      libnncam-devel < 1.39.15529
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -73,6 +73,6 @@ cp 70-risingcam-cameras.rules %{buildroot}/etc/udev/rules.d
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
-* Wed Sep 11 2019 James Fidell <james@openastroproject.org> - 1.37.14643
+* Sat Nov 2 2019 James Fidell <james@openastroproject.org> - 1.39.15529
 - Initial RPM release
 
