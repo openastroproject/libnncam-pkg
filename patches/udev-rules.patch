@@ -1,9 +1,9 @@
-Create udev ruleset for Risingcam and Levenhuk cameras
---- 70-risingcam-cameras.rules	1970-01-01 01:00:00.000000000 +0100
-+++ 70-risingcam-cameras.rules	2018-09-25 00:53:43.247858211 +0100
+Create udev ruleset for Mallincam cameras
+--- 70-mallincam-cameras.rules	1970-01-01 01:00:00.000000000 +0100
++++ 70-mallincam-cameras.rules	2018-09-25 00:53:43.247858211 +0100
 @@ -0,0 +1,28 @@
 +#
-+# 70-risingcam-cameras.rules -- Udev rules for Risingcam/Levenhuk cameras
++# 70-mallincam-cameras.rules -- Udev rules for Mallincam cameras
 +#
 +# Copyright 2019 James Fidell (james@openastroproject.org)
 +#

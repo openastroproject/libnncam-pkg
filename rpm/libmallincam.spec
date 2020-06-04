@@ -1,26 +1,26 @@
 %define debug_package %{nil}
 
-Name:           libnncam
-Version:        1.46.16709
+Name:           libmallincam
+Version:        1.43.15988
 Release:        0
-Summary:        Risingcam and Levenhuk camera support library
+Summary:        Mallincam camera support library
 License:	GPLv2+
 Prefix:         %{_prefix}
-Provides:       libnncam = %{version}-%{release}
-Obsoletes:      libnncam < 1.46.16709
-Source:         libnncam-%{version}.tar.gz
+Provides:       libmallincam = %{version}-%{release}
+Obsoletes:      libmallincam < 1.43.15988
+Source:         libmallincam-%{version}.tar.gz
 Patch0:         pkg-config.patch
 Patch1:         udev-rules.patch
 
 %description
-libnncam is a user-space driver for Risingcam and Levenhuk astronomy cameras.
+libmallincam is a user-space driver for Mallincam astronomy cameras.
 
 %package        devel
 Summary:        Development files for %{name}
 Group:          Development/Libraries
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Provides:       libnncam-devel = %{version}-%{release}
-Obsoletes:      libnncam-devel < 1.46.16709
+Provides:       libmallincam-devel = %{version}-%{release}
+Obsoletes:      libmallincam-devel < 1.43.15988
 
 %description    devel
 The %{name}-devel package contains libraries and header files for
@@ -34,7 +34,7 @@ developing applications that use %{name}.
 %build
 
 sed -e "s!@LIBDIR@!%{_libdir}!g" -e "s!@VERSION@!%{version}!g" < \
-    libnncam.pc.in > libnncam.pc
+    libmallincam.pc.in > libmallincam.pc
 
 %install
 mkdir -p %{buildroot}%{_libdir}/pkgconfig
@@ -43,8 +43,8 @@ mkdir -p %{buildroot}%{_includedir}
 
 case %{_arch} in
   x86_64)
-    cp linux/x64/libnncam.so %{buildroot}%{_libdir}/libnncam.so.%{version}
-		cp inc/nncam.h %{buildroot}%{_includedir}
+    cp linux/x64/libmallincam.so %{buildroot}%{_libdir}/libmallincam.so.%{version}
+		cp inc/mallincam.h %{buildroot}%{_includedir}
     ;;
   *)
     echo "unknown target architecture %{_arch}"
@@ -54,7 +54,7 @@ esac
 
 ln -sf %{name}.so.%{version} %{buildroot}%{_libdir}/%{name}.so.1
 cp *.pc %{buildroot}%{_libdir}/pkgconfig
-cp 70-risingcam-cameras.rules %{buildroot}/etc/udev/rules.d
+cp 70-mallincam-cameras.rules %{buildroot}/etc/udev/rules.d
 
 %post
 /sbin/ldconfig
@@ -69,10 +69,10 @@ cp 70-risingcam-cameras.rules %{buildroot}/etc/udev/rules.d
 %{_sysconfdir}/udev/rules.d/*.rules
 
 %files devel
-%{_includedir}/nncam.h
+%{_includedir}/mallincam.h
 %{_libdir}/pkgconfig/*.pc
 
 %changelog
-* Sun May 17 2020 James Fidell <james@openastroproject.org> - 1.46.16709-0
+* Thu Jun 4 2020 James Fidell <james@openastroproject.org> - 1.43.15988-0
 - Initial RPM release
 

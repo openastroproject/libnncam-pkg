@@ -1,21 +1,21 @@
-Source: libnncam
+Source: libmallincam
 Priority: optional
 Maintainer: James Fidell <james@openastroproject.org>
 Build-Depends: debhelper (>=@@COMPAT@@)
 Standards-Version: 4.1.4
 Section: libs
 
-Package: libnncam
+Package: libmallincam
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Risingcam/Levenhuk camera interface library
- Userspace library for connecting to Risingcam and Levenhuk astronomy cameras
+Description: Mallincam camera interface library
+ Userspace library for connecting to Mallincam astronomy cameras
 
-Package: libnncam-dev
+Package: libmallincam-dev
 Section: libdevel
 Architecture: any
-Depends: libnncam (= ${binary:Version}), ${misc:Depends}
-Description: Risingcam/Levenhuk camera interface library development files
- Development headers for libnncam, a userspace library for controlling
- Risingcam and Levenhuk astronomy cameras
+Depends: libmallincam (= ${binary:Version}), ${misc:Depends}
+Description: Mallincam camera interface library development files
+ Development headers for libmallincam, a userspace library for controlling
+ Mallincam astronomy cameras

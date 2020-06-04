@@ -1,5 +1,5 @@
-libnncam (1.46.16709-1) xenial; urgency=medium
+libmallincam (1.43.15988-1) xenial; urgency=medium
 
   * Initial release
 
- -- James Fidell <james@openastroproject.org>  Fri, 1 May 2020 23:32:55 +0100
+ -- James Fidell <james@openastroproject.org>  Thu, 4 Jun 2020 21:56:55 +0100

@@ -1,4 +1,4 @@
-VERSION=1.46.16709
+VERSION=1.43.15988
 
 override_dh_auto_build:
 	dh_auto_build -- LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH) VERSION=DEBVERSION
@@ -6,13 +6,13 @@ override_dh_auto_build:
 override_dh_auto_install:
 	case $(DEB_BUILD_ARCH) in \
 		i386) \
-			ln linux/x86/libnncam.so linux/x86/libnncam.so.$(VERSION);; \
+			ln linux/x86/libmallincam.so linux/x86/libmallincam.so.$(VERSION);; \
 		amd64) \
-			ln linux/x64/libnncam.so linux/x64/libnncam.so.$(VERSION);; \
+			ln linux/x64/libmallincam.so linux/x64/libmallincam.so.$(VERSION);; \
 		aarch64) \
-			ln linux/arm64/libnncam.so linux/arm64/libnncam.so.$(VERSION);; \
+			ln linux/arm64/libmallincam.so linux/arm64/libmallincam.so.$(VERSION);; \
 		armhf) \
-			ln linux/armhf/libnncam.so linux/armhf/libnncam.so.$(VERSION);; \
+			ln linux/armhf/libmallincam.so linux/armhf/libmallincam.so.$(VERSION);; \
 	esac
 	dh_auto_install -- SRCDIR=$(CURDIR) ARCH=$(DEB_TARGET_ARCH) \
 		INCDIR=$(CURDIR)/debian/tmp/usr/include \
