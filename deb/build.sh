@@ -5,7 +5,7 @@ export DEBFULLNAME="James Fidell"
 
 version=`cat version`
 
-srcdir=libmallincam-$version
+srcdir=libnncam-$version
 debdir=debian
 debsrc=$debdir/source
 quiltconf=$HOME/.quiltrc-dpkg
@@ -26,7 +26,7 @@ echo $compatversion > debfiles/compat
 
 cp ../patches/*.patch debfiles/patches
 
-tar zxf ../libmallincam-$version.tar.gz
+tar zxf ../libnncam-$version.tar.gz
 cd $srcdir
 test -d demo && ( chmod -x demo/*.* Makefile )
 YFLAG=-y
@@ -35,19 +35,19 @@ if [ $? -eq 0 ]
 then
   YFLAG=''
 fi
-dh_make $YFLAG -l -f ../../libmallincam-$version.tar.gz
+dh_make $YFLAG -l -f ../../libnncam-$version.tar.gz
 
 sed -e "s/@@COMPAT@@/$compatversion/" < ../debfiles/control > $debdir/control
 cp ../debfiles/copyright $debdir
 cp ../debfiles/changelog $debdir
 cp ../debfiles/compat $debdir
 cp ../debfiles/watch $debdir
-cp ../debfiles/libmallincam.dirs $debdir
-cp ../debfiles/libmallincam.install $debdir
-cp ../debfiles/libmallincam.symbols $debdir
-cp ../debfiles/libmallincam.triggers $debdir
-cp ../debfiles/libmallincam-dev.dirs $debdir
-cp ../debfiles/libmallincam-dev.install $debdir
+cp ../debfiles/libnncam.dirs $debdir
+cp ../debfiles/libnncam.install $debdir
+cp ../debfiles/libnncam.symbols $debdir
+cp ../debfiles/libnncam.triggers $debdir
+cp ../debfiles/libnncam-dev.dirs $debdir
+cp ../debfiles/libnncam-dev.install $debdir
 
 echo 10 > $debdir/compat
 
@@ -63,8 +63,8 @@ sed -e "s/DEBVERSION/$version/g" < ../debfiles/rules.overrides >> $debdir/rules
 
 rm $debdir/README.Debian
 rm $debdir/README.source
-rm -f $debdir/libmallincam-docs.docs
-rm $debdir/libmallincam1.*
+rm -f $debdir/libnncam-docs.docs
+rm $debdir/libnncam1.*
 rm $debdir/*.[Ee][Xx]
 
 
@@ -90,4 +90,4 @@ dpkg-buildpackage -us -uc
 
 echo "Now run:"
 echo
-echo "    lintian -i -I --show-overrides libmallincam_$version-1_amd64.changes"
+echo "    lintian -i -I --show-overrides libnncam_$version-1_amd64.changes"

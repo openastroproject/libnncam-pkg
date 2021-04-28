@@ -2,8 +2,8 @@
 
 version=`cat version`
 
-rm -fr libmallincam-$version
-rm -fr libmallincam_*
-rm -fr libmallincam-dev_*
+rm -fr libnncam-$version
+rm -fr libnncam_*
+rm -fr libnncam-dev_*
 rm -f debfiles/compat
 rm -f debfiles/patches/*

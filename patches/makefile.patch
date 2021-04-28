@@ -3,7 +3,7 @@ pkg-config data
 --- Makefile	1970-01-01 01:00:00.000000000 +0100
 +++ Makefile	2016-11-10 17:31:08.686722661 +0000
 @@ -0,0 +1,23 @@
-+all:	libmallincam.pc
++all:	libnncam.pc
 +
 +%.pc:	%.pc.in
 +	sed -e "s!@LIBDIR@!$(LIBDIR)!g" \
@@ -13,16 +13,16 @@ pkg-config data
 +	mkdir -p $(LIBDIR) $(INCDIR) $(PKGCONFDIR) $(UDEVDIR)
 +	case $(DEB_BUILD_ARCH) in \
 +	i386) \
-+		cp $(SRCDIR)/linux/x86/libmallincam*.so.$(VERSION) $(LIBDIR);; \
++		cp $(SRCDIR)/linux/x86/libnncam*.so.$(VERSION) $(LIBDIR);; \
 +	amd64) \
-+		cp $(SRCDIR)/linux/x64/libmallincam*.so.$(VERSION) $(LIBDIR);; \
++		cp $(SRCDIR)/linux/x64/libnncam*.so.$(VERSION) $(LIBDIR);; \
 +	aarch64) \
-+		cp $(SRCDIR)/linux/arm64/libmallincam*.so.$(VERSION) $(LIBDIR);; \
++		cp $(SRCDIR)/linux/arm64/libnncam*.so.$(VERSION) $(LIBDIR);; \
 +	armhf) \
-+		cp $(SRCDIR)/linux/armhf/libmallincam*.so.$(VERSION) $(LIBDIR);; \
++		cp $(SRCDIR)/linux/armhf/libnncam*.so.$(VERSION) $(LIBDIR);; \
 +	esac
-+	ln -sf libmallincam.so.$(VERSION) $(LIBDIR)/libmallincam.so.$(MAJOR_REV)
-+	ln -sf libmallincam.so.$(VERSION) $(LIBDIR)/libmallincam.so
++	ln -sf libnncam.so.$(VERSION) $(LIBDIR)/libnncam.so.$(MAJOR_REV)
++	ln -sf libnncam.so.$(VERSION) $(LIBDIR)/libnncam.so
 +	cp $(SRCDIR)/inc/*.h $(INCDIR)
-+	cp $(SRCDIR)/libmallincam.pc $(PKGCONFDIR)
-+	cp $(SRCDIR)/70-mallincam-cameras.rules $(UDEVDIR)
++	cp $(SRCDIR)/libnncam.pc $(PKGCONFDIR)
++	cp $(SRCDIR)/70-nncam-cameras.rules $(UDEVDIR)

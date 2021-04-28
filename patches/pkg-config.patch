@@ -1,12 +1,12 @@
-Create libmallincam pkg-config file template
---- libmallincam.pc.in	1970-01-01 01:00:00.000000000 +0100
-+++ libmallincam.pc.in	2016-11-05 23:11:43.247858211 +0000
+Create libnncam pkg-config file template
+--- libnncam.pc.in	1970-01-01 01:00:00.000000000 +0100
++++ libnncam.pc.in	2016-11-05 23:11:43.247858211 +0000
 @@ -0,0 +1,8 @@
 +libdir=@LIBDIR@
 +includedir=/usr/include
 +
-+Name: libmallincam
-+Description: Mallincam camera interface library
++Name: libnncam
++Description: Risingcam/Levenhuk camera interface library
 +Version: @VERSION@
-+Libs: -L${libdir} -lmallincam
++Libs: -L${libdir} -lnncam
 +Cflags: -I${includedir}
