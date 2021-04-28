@@ -1,4 +1,4 @@
-VERSION=1.43.15988
+VERSION=1.48.18332
 
 override_dh_auto_build:
 	dh_auto_build -- LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH) VERSION=DEBVERSION
@@ -11,6 +11,8 @@ override_dh_auto_install:
 			ln linux/x64/libmallincam.so linux/x64/libmallincam.so.$(VERSION);; \
 		aarch64) \
 			ln linux/arm64/libmallincam.so linux/arm64/libmallincam.so.$(VERSION);; \
+		armel-*|armhf-armv[456]l) \
+			ln linux/armel/libnncam.so linux/armel/libnncam.so.$(VERSION);; \
 		armhf) \
 			ln linux/armhf/libmallincam.so linux/armhf/libmallincam.so.$(VERSION);; \
 	esac
